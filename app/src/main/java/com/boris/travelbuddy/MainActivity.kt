@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomeFragment())
@@ -19,23 +18,27 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
 
             when(it.itemId){
+
                 R.id.page_home -> replaceFragment(HomeFragment())
                 R.id.page_tickets -> replaceFragment(TicketsFragment())
                 R.id.page_settings -> replaceFragment(SettingsFragment())
 
-                else -> {
-
+                else ->{
                 }
+
             }
+
             true
         }
     }
 
-    private fun replaceFragment(fragment:Fragment){
+    private fun replaceFragment(fragment : Fragment){
+
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-
         fragmentTransaction.replace(R.id.frameLayout,fragment)
         fragmentTransaction.commit()
+
+
     }
 }
